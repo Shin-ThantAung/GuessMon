@@ -1,8 +1,8 @@
-# HangMan
-FED_Assignment2_HangMan
+# GuessMon
+FED_Assignment2_GuessMon
 
 Idea
 ----
-Creating a HangMan Game. The user is to guess the hidden word, letter by letter.
+A guessing game. The user is to guess the randomly selected pokemon using an image.
 With every mistake made, extra strokes will be added to the hangman,
-the game is over when the user guessed the hidden word or the hangman is completed.
+The game ends when the player guesses the pokemon or the number of tries is used up.
