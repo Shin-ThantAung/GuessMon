@@ -12,23 +12,20 @@ async function getPokemon(){
         const randomPokemon = data.name;
         
         console.log(randomPokemon);
+        let answer = document.getElementById("answer");
 
-        let correct = false;
-        let tries = 0;
-
-
-
-        var answer = document.getElementById("answer");
-        tries ++
-
-        if (answer == randomPokemon)
+        console.log(answer);
+        for(let tries = 0; tries < 6; tries ++)
         {
-            console.log("Correct Answer");
-            correct = true;
-        }
-        else
-        {
-            console.log("Incorrect Answer. {0} tries left.");
+            if (answer == randomPokemon)
+            {
+                console.log("Correct Answer");
+                correct = true;
+            }
+            else
+            {
+                console.log(`Incorrect Answer. ${tries} tries left.`);
+            }
         }
 
     }
