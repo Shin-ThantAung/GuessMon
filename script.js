@@ -22,61 +22,84 @@ iconClose.addEventListener('click', ()=> {
     wrapper.classList.remove('active');
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if data exists in local storage
-    if (localStorage.getItem('formData')) {
-        // If data exists, populate form fields
-        var formData = JSON.parse(localStorage.getItem('formData'));
-        document.getElementById('name').value = formData.name;
-        document.getElementById('email').value = formData.email;
-        document.getElementById('password').value = formData.password;
+const APIKEY = "65c639c4be534a61aad9f3e9";
+getPlayerInfo();
+
+document.getElementById('regi-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get form values
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    // Create object to store form data
+    let jsondata = {
+        "name": name,
+        "email": email,
+        "password": password
+    };
+
+    let settings = {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "x-apikey": "65c639c4be534a61aad9f3e9",
+            "Cache-Control": "no-cache"
+        },
+        body: JSON.stringify(jsondata),
     }
+    
+    fetch('https://pokemonguessinggame-6d97.restdb.io/rest/playerinfo', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response failure');
+        }
+        return response.json();
+    })
 
-    // Add event listener for form submission
-    document.getElementById('regi-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+.catch(error => {
+    console.error('Error fetching leaderboard data:', error);
+    // Handle error (e.g., display error message to the user)
+});
 
-        // Get form values
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+        
+});
 
-        // Create object to store form data
-        var formData = {
-            name: name,
-            email: email,
-            password: password
-        };
+//after successful login
+localStorage.setItem('isLoggedIn', 'true');
 
-        // Store form data in local storage
-        localStorage.setItem('formData', JSON.stringify(formData));
+//attempt to play checked if in account
+const checkLogin = document.querySelector('.btnPlay');
+
+checkLogin.addEventListener('click', ()=> {
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'index.html'
+            alert('Please log in first.');
+        }
     });
-});
+})
 
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    if (localStorage.getItem('formData')) {
-        var formData = JSON.parse(localStorage.getItem('formData'));
+//leaderboard js
 
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+function buildTable(data){
+    var table = document.getElementById('leaderboard')
 
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-            if (email === formData.email && password === formData.password) {
-                alert('Login successful!');
-            } else {
-                alert('Invalid email or password. Please try again.');
-            }
-        });
-    } else {
-        alert('No user data found. Please sign up first.');
+    for (var i = 0; i < data.length; i++){
+        var row =   `<tr>
+                        <td>${data[i].position}</td>
+                        <td>${data[i].name}</td>
+                        <td>${data[i].score}</td>
+                    </tr>`
+        table.innerHTML += row
     }
-});
-*/
-
-
+}
 //game js
 
 //Initilizing the point for user
