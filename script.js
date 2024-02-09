@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-/*
+
 document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('formData')) {
         var formData = JSON.parse(localStorage.getItem('formData'));
@@ -74,8 +74,18 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('No user data found. Please sign up first.');
     }
 });
-*/
+//after successful login
+localStorage.setItem('isLoggedIn', 'true');
+const checkLogin = document.querySelector('.btnPlay');
 
+checkLogin.addEventListener('click', ()=> {
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'index.html'
+            alert('Please log in first.');
+        }
+    });
+})
 
 //game js
 
