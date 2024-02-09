@@ -1,5 +1,4 @@
 //game js
-
 startGame();
 
 
@@ -48,9 +47,7 @@ async function startGame(){
     }
 }
 
-/*
 
-// floating login page js
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
@@ -74,7 +71,7 @@ iconClose.addEventListener('click', ()=> {
     wrapper.classList.remove('active');
 });
 
-Document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Check if data exists in local storage
     if (localStorage.getItem('formData')) {
         // If data exists, populate form fields
@@ -105,31 +102,25 @@ Document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/*
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if data exists in local storage
     if (localStorage.getItem('formData')) {
         var formData = JSON.parse(localStorage.getItem('formData'));
 
-        // Add event listener for form submission
         document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault();
 
-            // Get form values
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
 
-            // Check if the provided email and password match the stored data
             if (email === formData.email && password === formData.password) {
                 alert('Login successful!');
-                // Redirect the user to another page or perform other actions
             } else {
                 alert('Invalid email or password. Please try again.');
             }
         });
     } else {
         alert('No user data found. Please sign up first.');
-        // Redirect the user to the sign-up page or perform other actions
     }
 });
-
 */
