@@ -1,30 +1,46 @@
 //game js
-async function getPokemon(){
+
+startGame();
+
+
+async function startGame(){
     try{
+
         var min = 1;
         var max = 1025;
         var randomNum = Math.floor(Math.random() * (max - min+ 1)) + min;
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-
-        const data = await response.json();
-        const randomPokemon = data.name;
         
-        console.log(randomPokemon);
-        let answer = document.getElementById("answer");
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`);
+        const data = await response.json();
+        console.log(data);
 
-        console.log(answer);
-        for(let tries = 0; tries < 6; tries ++)
-        {
+        
+        
+        const randomPokemon = data.name;
+
+        const output = document.getElementById('outputText');
+
+        console.log(randomPokemon);
+
+        let btnSubmit = document.getElementById('btnSubmit');
+
+
+        btnSubmit.addEventListener('click', function(e){
+            e.preventDefault();
+
+            let answer = document.getElementById("answer").value.toLowerCase();
+
+
+
             if (answer == randomPokemon)
             {
-                console.log("Correct Answer");
-                correct = true;
+                output.innerHTML = "Correct Answer!!!";
             }
-            else
-            {
-                console.log(`Incorrect Answer. ${tries} tries left.`);
+            else{
+                output.innerHTML = `Incorrect Answer.`;
             }
-        }
+
+        })
 
     }
     catch(error){
@@ -32,7 +48,7 @@ async function getPokemon(){
     }
 }
 
-getPokemon();
+/*
 
 // floating login page js
 const wrapper = document.querySelector('.wrapper');
@@ -115,3 +131,5 @@ document.addEventListener('DOMContentLoaded', function() {
         // Redirect the user to the sign-up page or perform other actions
     }
 });
+
+*/

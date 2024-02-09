@@ -20,12 +20,23 @@
             </div>
         </div>
 
-        <div>
+        <div class="game-container">
+            <button onclick=startGame()>Start Game</button>
             <form class="answer-box">
                 <label>Answer:
-                    <input type="text" name="Answer" id="answer">
+                    <input type="text" name="Answer" id="answer"> <button id = "btnSubmit">Submit Answer</button>
+                    <p id="outputText">Answer</p>
+
+                    <img src="" id="pokemonSprite" style="display:none">
+
                 </label>
             </form>
+
+            <div class = "hint-box">
+                <p>Type: </p><p id = "type"></p>
+                <p>Generation: </p><p id = "gen"></p>
+                <p></p>
+            </div>
         </div>
 
         <script src="script.js"></script>

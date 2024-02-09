@@ -260,7 +260,7 @@ form a:hover{
 }
 
 .answer-box {
-    position: absolute;
+    position: relative;
     justify-content: left;
 }
 
@@ -295,3 +295,6 @@ form a:hover{
     font-weight: 300;
 }
 
+.game-container {
+    position: relative;
+}
