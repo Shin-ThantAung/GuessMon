@@ -261,9 +261,15 @@ form a:hover{
 
 .answer-box {
     position: relative;
-    justify-content: left;
+    display: flex;
+    justify-content: right;
+    padding: 50px 20px;
 }
 
+.hint-box {
+    display: flex;
+    flex-direction: column;
+}
 .scrolling-wrapper {
     position: relative;
     width: 1500px;
@@ -297,4 +303,17 @@ form a:hover{
 
 .game-container {
     position: relative;
+    display: flex;
+    background: rgb(255, 215, 0, 0.7);
+    flex-direction: column;
+    padding: 50px 50px;
+}
+
+.game-container button{
+    background-color: darkgoldenrod;
+    border: none;
+    color: pink;
+    font-size: 20px;
+    padding: 4px 16px;
+    border-radius: 12px;
 }

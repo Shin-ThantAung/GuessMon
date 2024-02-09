@@ -16,16 +16,15 @@
             </nav>
         </header>
         <div class="container">
-            <div class = "Hangman">
-            </div>
         </div>
 
         <div class="game-container">
-            <button onclick=startGame()>Start Game</button>
+            <p id="userPoints"></p>
+            <button onclick=startGame(this)>New Game</button>
             <form class="answer-box">
                 <label>Answer:
                     <input type="text" name="Answer" id="answer"> <button id = "btnSubmit">Submit Answer</button>
-                    <p id="outputText">Answer</p>
+                    <p id="outputText"></p>
 
                     <img src="" id="pokemonSprite" style="display:none">
 
@@ -33,8 +32,9 @@
             </form>
 
             <div class = "hint-box">
-                <p>Type: </p><p id = "type"></p>
-                <p>Generation: </p><p id = "gen"></p>
+                <p id = "pokedexID"></p>
+                <p id = "type"></p>
+                <p id = "ability"></p>
                 <p></p>
             </div>
         </div>
