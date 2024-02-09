@@ -3,15 +3,25 @@
     <head>
         <title>Game Page</title>
         <link href="style.css" rel="stylesheet" type="text/css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap" rel="stylesheet">
     </head>
     <body>
+        <header>
+            <h1 class="Title">HANGMON</h1>
+            <nav class="navigation">
+                <button onclick= "window.location.href='index.html';" class="btnPlay">Back</button>
+            </nav>
+        </header>
         <div class="container">
             <div class = "Hangman">
             </div>
         </div>
 
         <div>
-            <form>
+            <form class="answer-box">
                 <label>Answer:
                     <input type="text" name="Answer" id="answer">
                 </label>

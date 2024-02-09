@@ -10,9 +10,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('background.jpg');
-    /* background.jpg needs higher quality image 
-    previous image: https://i.pinimg.com/564x/37/cb/76/37cb76481bbf0b94a1743ace93edfaee.jpg*/
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -20,8 +20,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    background-color: yellow;
     padding: 20px 100px;
-    background: yellow;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,18 +54,27 @@ header {
 
 .navigation .btnLogin:hover {
     background: #fff;
-    color: #2b2d31;
+    color: #000000;
 }
 
-section{
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-size: cover;
-    background-position: center;
+.navigation .btnPlay {
+    width: 150px;
+    height: 70px;
+    background:black;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: yellow;
+    font-weight: 500;
+    margin-left:40px;
+    transition: .5s;
+}
+
+.navigation .btnPlay:hover {
+    background: #fbfd79;
+    color: #000000;
 }
 
 h1{
@@ -79,7 +88,7 @@ h1{
 }
 
 form{
-    color: #ffd175;
+    color: #000000;
     text-decoration: none;
     font-weight: 500;
     letter-spacing: 1px;
@@ -89,4 +98,137 @@ form{
 
 form a:hover{
     background: #ffcccc;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background:transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 12px;
+    backdrop-filter:blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height 0.2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height:520px;
+}
+
+.wrapper .floating {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .floating.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .floating.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .floating.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .floating.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    font-size: 2em;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+
+}
+
+.floating h2 {
+    font-size: 2em;
+    color: #2b2d31;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #2b2d31;
+    margin: 30px 0;
+}
+
+.remember-box {
+    font-size: .8em;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-box a{
+    color: rgb(73, 73, 73);
+    text-decoration: none;
+}
+
+.remember-box a:hover{
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: yellow;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color:#000;
+}
+
+.login-register {
+    font-size: .8em;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: rgb(73, 73, 73);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+.answer-box {
+    position: absolute;
+    justify-content: left;
 }
